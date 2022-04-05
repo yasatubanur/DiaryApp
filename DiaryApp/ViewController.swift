@@ -9,11 +9,52 @@ import UIKit
 
 class ViewController: UIViewController {
 
+    @IBOutlet var tableView: UITableView!
+    var notes : [String] = []
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+        
+        setup()
+        
+        for i in 1...10 {
+            notes.append("Day\(i)")
+        }
+    }
+    
+    func setup() {
+        navigationItem.title = "My Diary"
+        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addDiary))
+        
+        tableView.delegate = self
+        tableView.dataSource = self
     }
 
 
 }
+
+
+//MARK: button functions
+extension ViewController {
+    @objc func addDiary() {
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let diaryVC = storyboard.instantiateViewController(withIdentifier: "NewDiaryVC")
+        self.navigationController?.pushViewController(diaryVC, animated: true)
+    }
+}
+
+
+//MARK: tableView protocols
+extension ViewController : UITableViewDelegate, UITableViewDataSource {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return notes.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = UITableViewCell()
+        cell.textLabel?.text = notes[indexPath.row]
+        return cell
+    }
+}
+
 
