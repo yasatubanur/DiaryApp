@@ -14,6 +14,7 @@
 		AB1DD62127FCD8E30003383B /* DiaryApp.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = AB1DD61F27FCD8E30003383B /* DiaryApp.xcdatamodeld */; };
 		AB1DD62327FCD8E30003383B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AB1DD62227FCD8E30003383B /* Assets.xcassets */; };
 		AB1DD62627FCD8E30003383B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AB1DD62427FCD8E30003383B /* LaunchScreen.storyboard */; };
+		AB1DD62E27FCDBCF0003383B /* NewDiaryVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB1DD62D27FCDBCF0003383B /* NewDiaryVC.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +27,7 @@
 		AB1DD62227FCD8E30003383B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		AB1DD62527FCD8E30003383B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		AB1DD62727FCD8E30003383B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		AB1DD62D27FCDBCF0003383B /* NewDiaryVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewDiaryVC.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -61,6 +63,7 @@
 				AB1DD61627FCD8E30003383B /* AppDelegate.swift */,
 				AB1DD61827FCD8E30003383B /* SceneDelegate.swift */,
 				AB1DD61A27FCD8E30003383B /* ViewController.swift */,
+				AB1DD62D27FCDBCF0003383B /* NewDiaryVC.swift */,
 				AB1DD61C27FCD8E30003383B /* Main.storyboard */,
 				AB1DD62227FCD8E30003383B /* Assets.xcassets */,
 				AB1DD62427FCD8E30003383B /* LaunchScreen.storyboard */,
@@ -144,6 +147,7 @@
 				AB1DD61B27FCD8E30003383B /* ViewController.swift in Sources */,
 				AB1DD61727FCD8E30003383B /* AppDelegate.swift in Sources */,
 				AB1DD61927FCD8E30003383B /* SceneDelegate.swift in Sources */,
+				AB1DD62E27FCDBCF0003383B /* NewDiaryVC.swift in Sources */,
 				AB1DD62127FCD8E30003383B /* DiaryApp.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
