@@ -15,6 +15,8 @@
 		AB1DD62327FCD8E30003383B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AB1DD62227FCD8E30003383B /* Assets.xcassets */; };
 		AB1DD62627FCD8E30003383B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AB1DD62427FCD8E30003383B /* LaunchScreen.storyboard */; };
 		AB1DD62E27FCDBCF0003383B /* NewDiaryVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB1DD62D27FCDBCF0003383B /* NewDiaryVC.swift */; };
+		AB1DD63827FCE5050003383B /* Date+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB1DD63727FCE5050003383B /* Date+Extensions.swift */; };
+		AB1DD63B27FCE7E00003383B /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB1DD63A27FCE7E00003383B /* DataManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +30,8 @@
 		AB1DD62527FCD8E30003383B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		AB1DD62727FCD8E30003383B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		AB1DD62D27FCDBCF0003383B /* NewDiaryVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewDiaryVC.swift; sourceTree = "<group>"; };
+		AB1DD63727FCE5050003383B /* Date+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Extensions.swift"; sourceTree = "<group>"; };
+		AB1DD63A27FCE7E00003383B /* DataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,6 +64,8 @@
 		AB1DD61527FCD8E30003383B /* DiaryApp */ = {
 			isa = PBXGroup;
 			children = (
+				AB1DD63927FCE63E0003383B /* Services */,
+				AB1DD63627FCE4970003383B /* Extensions */,
 				AB1DD61627FCD8E30003383B /* AppDelegate.swift */,
 				AB1DD61827FCD8E30003383B /* SceneDelegate.swift */,
 				AB1DD61A27FCD8E30003383B /* ViewController.swift */,
@@ -71,6 +77,22 @@
 				AB1DD61F27FCD8E30003383B /* DiaryApp.xcdatamodeld */,
 			);
 			path = DiaryApp;
+			sourceTree = "<group>";
+		};
+		AB1DD63627FCE4970003383B /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				AB1DD63727FCE5050003383B /* Date+Extensions.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		AB1DD63927FCE63E0003383B /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				AB1DD63A27FCE7E00003383B /* DataManager.swift */,
+			);
+			path = Services;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -147,8 +169,10 @@
 				AB1DD61B27FCD8E30003383B /* ViewController.swift in Sources */,
 				AB1DD61727FCD8E30003383B /* AppDelegate.swift in Sources */,
 				AB1DD61927FCD8E30003383B /* SceneDelegate.swift in Sources */,
+				AB1DD63B27FCE7E00003383B /* DataManager.swift in Sources */,
 				AB1DD62E27FCDBCF0003383B /* NewDiaryVC.swift in Sources */,
 				AB1DD62127FCD8E30003383B /* DiaryApp.xcdatamodeld in Sources */,
+				AB1DD63827FCE5050003383B /* Date+Extensions.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
