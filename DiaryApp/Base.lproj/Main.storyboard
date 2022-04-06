@@ -19,6 +19,46 @@
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="AE3-nf-ZT1">
                                 <rect key="frame" x="20" y="128" width="374" height="714"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="DiaryTableViewCell" rowHeight="98" id="acQ-dx-1te" customClass="DiaryTableViewCell" customModule="DiaryApp" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="44.5" width="374" height="98"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="acQ-dx-1te" id="nW3-Qm-JlP">
+                                            <rect key="frame" x="0.0" y="0.0" width="374" height="98"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Date" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OB1-vt-xeR">
+                                                    <rect key="frame" x="15" y="5" width="344" height="40"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="40" id="D8e-FP-qvr"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Content" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3Ih-dx-GPm">
+                                                    <rect key="frame" x="15" y="50" width="344" height="48"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="trailing" secondItem="OB1-vt-xeR" secondAttribute="trailing" constant="15" id="0fZ-Lu-viH"/>
+                                                <constraint firstAttribute="bottom" secondItem="3Ih-dx-GPm" secondAttribute="bottom" id="2rh-zc-QRz"/>
+                                                <constraint firstItem="3Ih-dx-GPm" firstAttribute="leading" secondItem="nW3-Qm-JlP" secondAttribute="leading" constant="15" id="Lub-Rz-Ta3"/>
+                                                <constraint firstAttribute="trailing" secondItem="3Ih-dx-GPm" secondAttribute="trailing" constant="15" id="ZBv-mw-22Q"/>
+                                                <constraint firstItem="OB1-vt-xeR" firstAttribute="top" secondItem="nW3-Qm-JlP" secondAttribute="top" constant="5" id="apU-sS-EEq"/>
+                                                <constraint firstItem="3Ih-dx-GPm" firstAttribute="top" secondItem="OB1-vt-xeR" secondAttribute="bottom" constant="5" id="bZL-wU-vTs"/>
+                                                <constraint firstItem="OB1-vt-xeR" firstAttribute="leading" secondItem="nW3-Qm-JlP" secondAttribute="leading" constant="15" id="fUh-qO-ZkB"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="contentLabel" destination="3Ih-dx-GPm" id="x7Q-KY-Wnj"/>
+                                            <outlet property="dateLabel" destination="OB1-vt-xeR" id="XP1-o7-mc9"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
                             </tableView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>

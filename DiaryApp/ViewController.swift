@@ -10,7 +10,7 @@ import UIKit
 class ViewController: UIViewController {
 
     @IBOutlet var tableView: UITableView!
-    var notes : [String] = []
+    var diaries : [DiaryModel] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -21,7 +21,7 @@ class ViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        notes = DataManager().getDiary()
+        diaries = DataManager().getDiary()
         tableView.reloadData()
     }
     
@@ -48,12 +48,13 @@ extension ViewController {
 //MARK: tableView protocols
 extension ViewController : UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return notes.count
+        return diaries.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = UITableViewCell()
-        cell.textLabel?.text = notes[indexPath.row]
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "DiaryTableViewCell", for: indexPath) as? DiaryTableViewCell else { return UITableViewCell()}
+        cell.dateLabel.text = diaries[indexPath.row].date
+        cell.contentLabel.text = diaries[indexPath.row].content
         return cell
     }
 }

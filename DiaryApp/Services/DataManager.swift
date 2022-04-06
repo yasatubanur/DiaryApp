@@ -27,7 +27,7 @@ class DataManager: NSObject {
         }
     }
     
-    func getDiary() -> [String] {
+    func getDiary() -> [DiaryModel] {
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
         let context = appDelegate.persistentContainer.viewContext
         
@@ -36,20 +36,22 @@ class DataManager: NSObject {
         
         do{
             let results = try context.fetch(fetchRequest)
-            
-            var contentArray = [String]()
+            var diaryArray = [DiaryModel]()
             for result in results as! [NSManagedObject]{
+                var diaryModel = DiaryModel()
                 if let id = result.value(forKey: "id") as? UUID {
-                    print(id)
+                    diaryModel.id = id
                 }
                 if let date = result.value(forKey: "date") as? String {
-                    print(date)
+                    diaryModel.date = date
                 }
                 if let content = result.value(forKey: "content") as? String {
-                    contentArray.append(content)
+                    diaryModel.content = content
                 }
+                diaryArray.append(diaryModel)
             }
-            return contentArray
+            
+            return diaryArray
         }catch{
             return []
         }
