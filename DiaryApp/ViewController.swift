@@ -16,10 +16,13 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         
         setup()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
         
-        for i in 1...10 {
-            notes.append("Day\(i)")
-        }
+        notes = DataManager().getDiary()
+        tableView.reloadData()
     }
     
     func setup() {
@@ -29,8 +32,6 @@ class ViewController: UIViewController {
         tableView.delegate = self
         tableView.dataSource = self
     }
-
-
 }
 
 

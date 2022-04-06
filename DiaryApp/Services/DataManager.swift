@@ -26,6 +26,34 @@ class DataManager: NSObject {
             print("error!")
         }
     }
+    
+    func getDiary() -> [String] {
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        let context = appDelegate.persistentContainer.viewContext
+        
+        let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "Diary")
+        fetchRequest.returnsObjectsAsFaults = true
+        
+        do{
+            let results = try context.fetch(fetchRequest)
+            
+            var contentArray = [String]()
+            for result in results as! [NSManagedObject]{
+                if let id = result.value(forKey: "id") as? UUID {
+                    print(id)
+                }
+                if let date = result.value(forKey: "date") as? String {
+                    print(date)
+                }
+                if let content = result.value(forKey: "content") as? String {
+                    contentArray.append(content)
+                }
+            }
+            return contentArray
+        }catch{
+            return []
+        }
+    }
 }
 /*
  singleton yapısı
