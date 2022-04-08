@@ -24,6 +24,8 @@ class NewDiaryVC: UIViewController {
         navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .save, target: self, action: #selector(saveDiary))
         
         contentTextView.text = ""
+        contentTextView.layer.borderWidth = 0.5
+        contentTextView.layer.borderColor = UIColor.lightGray.cgColor
         
         let date = Date()
         dateLabel.text = "\(date.get(.day)).\(date.get(.month)).\(date.get(.year))"
@@ -35,7 +37,7 @@ class NewDiaryVC: UIViewController {
 extension NewDiaryVC {
     @objc func saveDiary() {
         guard let date = dateLabel.text, let content = contentTextView.text else { return }
-        DataManager().saveDiary(date: date, content: content)
+        DataManager.saveDiary(date: date, content: content)
     }
 }
 

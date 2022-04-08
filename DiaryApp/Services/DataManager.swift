@@ -9,8 +9,10 @@ import UIKit
 import CoreData
 
 class DataManager: NSObject {
+    var fetchResults = [NSFetchRequestResult]()
+    static let shared = DataManager()
 
-    func saveDiary(date: String, content: String) {
+    static func saveDiary(date: String, content: String) {
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
         let context = appDelegate.persistentContainer.viewContext
         let diary = NSEntityDescription.insertNewObject(forEntityName: "Diary", into: context)
@@ -27,7 +29,7 @@ class DataManager: NSObject {
         }
     }
     
-    func getDiary() -> [DiaryModel] {
+    static func getDiary() -> [DiaryModel] {
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
         let context = appDelegate.persistentContainer.viewContext
         
@@ -36,6 +38,7 @@ class DataManager: NSObject {
         
         do{
             let results = try context.fetch(fetchRequest)
+            shared.fetchResults = results
             var diaryArray = [DiaryModel]()
             for result in results as! [NSManagedObject]{
                 var diaryModel = DiaryModel()
@@ -56,10 +59,26 @@ class DataManager: NSObject {
             return []
         }
     }
+    
+    func deleteDiary(id: UUID) {
+        guard Self.shared.fetchResults.count > 0 ,
+        let results = Self.shared.fetchResults as? [NSManagedObject] else {
+            print("empty")
+            return
+        }
+        let deleteDiary : NSManagedObject? = results.first { result in
+            return id == result.value(forKey: "id") as! UUID
+        }
+        if let deleteObject = deleteDiary{
+            let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+            context.delete(deleteObject)
+            
+            do{
+                try context.save()
+                
+            }catch{
+                print("ERRORR!")
+            }
+        }
+    }
 }
-/*
- singleton yapısı
- model oluştrumak
- 
- */
- 

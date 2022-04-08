@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import CoreData
 
 class ViewController: UIViewController {
 
@@ -21,7 +22,7 @@ class ViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        diaries = DataManager().getDiary()
+        diaries = DataManager.getDiary()
         tableView.reloadData()
     }
     
@@ -56,6 +57,15 @@ extension ViewController : UITableViewDelegate, UITableViewDataSource {
         cell.dateLabel.text = diaries[indexPath.row].date
         cell.contentLabel.text = diaries[indexPath.row].content
         return cell
+    }
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete,
+           let id = diaries[indexPath.row].id{
+            
+            DataManager.shared.deleteDiary(id: id)
+            diaries.remove(at: indexPath.row)
+            tableView.reloadData()
+        }
     }
 }
 
