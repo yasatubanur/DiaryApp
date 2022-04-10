@@ -11,6 +11,7 @@ import CoreData
 class DataManager: NSObject {
     var fetchResults = [NSFetchRequestResult]()
     static let shared = DataManager()
+    typealias closure = () -> Void
 
     static func saveDiary(date: String, content: String) {
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
@@ -60,7 +61,7 @@ class DataManager: NSObject {
         }
     }
     
-    func deleteDiary(id: UUID) {
+    func deleteDiary(id: UUID, completion: (Bool) -> Void) {
         guard Self.shared.fetchResults.count > 0 ,
         let results = Self.shared.fetchResults as? [NSManagedObject] else {
             print("empty")
@@ -73,12 +74,13 @@ class DataManager: NSObject {
             let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
             context.delete(deleteObject)
             
+            var isSuccesfull = true
             do{
                 try context.save()
-                
             }catch{
-                print("ERRORR!")
+                isSuccesfull = false
             }
+            completion(isSuccesfull)
         }
     }
 }

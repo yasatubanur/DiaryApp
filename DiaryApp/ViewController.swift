@@ -62,9 +62,12 @@ extension ViewController : UITableViewDelegate, UITableViewDataSource {
         if editingStyle == .delete,
            let id = diaries[indexPath.row].id{
             
-            DataManager.shared.deleteDiary(id: id)
-            diaries.remove(at: indexPath.row)
-            tableView.reloadData()
+            DataManager.shared.deleteDiary(id: id, completion: { status in
+                if status{
+                    diaries.remove(at: indexPath.row)
+                    tableView.reloadData()
+                }
+            })
         }
     }
 }
